@@ -7,8 +7,8 @@ usuario_bp = Blueprint('usuario', __name__)
 @usuario_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    email = data.get('email')
-    senha = data.get('senha')
+    email = data.get('email_usuario')
+    senha = data.get('senha_usuario')
     try:
         usuario = UsuarioService.autenticar_usuario(email, senha)
         return jsonify(usuario.to_dict()), 200
